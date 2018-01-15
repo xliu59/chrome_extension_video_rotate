@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "Video Rotate",
+  "version": "0.1.0",
+  "description": "Rotate a web Video",
+
+  "permissions": [
+    "activeTab" // better than 'tabs' -- all website pages, safter to user
+  ],
+
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"] 
+  },
+
+  // // Pick one (or none)
+  "page_action": {
+    "default_icon": "icon_red.png",
+    "default_popup": "popup.html"
+  },
+  // "page_action": {...},
+
+  "content_scripts": [{
+    "css": ["styles.css"],
+    "js": ["jquery-3.2.1.slim.js", "content.js"],
+    "matches": ["https://www.youtube.com/*"],
+    "run_at": "document_start"
+  }]
+ 
+}
