@@ -17,8 +17,8 @@ chrome.runtime.onMessage.addListener(function (msg, sender) {
  *	and also forward the response from content to popup
  */
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-	if((msg.from === "popup") && (msg.subject === 90)) {
-		console.log("FWD: new command from popup : do 90 rotation");
+	if((msg.from === "popup") && (msg.subject === "rotate")) {
+		console.log("FWD: new rotate command from popup : " + msg.value + " degree");
 		msg.from = "background";
 		chrome.tabs.sendMessage(tabId, msg, (response) => {
 			if(!(response instanceof Error)){

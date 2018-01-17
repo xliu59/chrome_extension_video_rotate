@@ -1,0 +1,23 @@
+body {
+	width: 200px;
+	font-family : Georgia,Utopia,Charter,serif;
+}
+
+input[type=radio]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+
+input[type=radio]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -28px;
+  padding-left : 28px;
+  background   : url('buttons.png') no-repeat 0 0;
+  line-height  : 24px;
+}
+
+input[type=radio]:not(old):checked + label{
+  background-position : 0 -48px;
+}

@@ -3,12 +3,31 @@
   <head>
     <title>Video Rotate</title>
     <script src="popup.js"></script>
+    <link href="popup.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Video detected!</h1>
-    <button id="90deg">Rotate 90 degerees</button>
-    <button id="180deg">Rotate 180 degerees</button>
-    <button id="270deg">Rotate 270 degerees</button>
-    <button id="reset">Reset</button>
+  	<h1>Rotate Your Video!</h1>
+  	<div id="button-list">
+  		<div>
+			<input type="radio" id="0deg"
+			 name="rotate" value="0" checked>
+			<label for="0deg">0</label>
+		</div>
+		<div>
+			<input type="radio" id="90deg"
+		 	name="rotate" value="90">
+			<label for="90deg">90</label>
+		</div>
+		<div>
+			<input type="radio" id="180deg"
+			 name="rotate" value="180">
+			<label for="180deg">180</label>
+		</div>
+		<div>
+			<input type="radio" id="270deg"
+			 name="rotate" value="270">
+			<label for="270deg">270</label>
+		</div>
+  	</div>
   </body>
 </html>

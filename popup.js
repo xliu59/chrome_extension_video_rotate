@@ -10,34 +10,34 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function addPopupListener(){
-	// TODO: use JavaScript Event Delegation
-	var rotate90 = document.getElementById('90deg');
-	var rotate180 = document.getElementById('180deg');
-	var rotate270 = document.getElementById('270deg');
-	var reset = document.getElementById('reset');
+	// use JavaScript Event Delegation
+	var buttons = document.getElementById('button-list');
 
 	if(document.addEventListener){
-    	rotate90.addEventListener('click', sendCommand); //W3C
+    	buttons.addEventListener('click', sendCommand); //W3C
 	}else{
-		rotate90.attachEvent('onclick', sendCommand);
+		buttons.attachEvent('onclick', sendCommand); //IE
 	}
 }
 
+function sendCommand(e) {
+	if(e.target && e.target.nodeName === 'INPUT'){
+		console.log("rotate " + e.target.value + " button clicked");
+		
+		var msg = ({
+			from: "popup",
+			subject: "rotate",
+			value: e.target.value
+		});
 
-function sendCommand() {
-	console.log("rotate90 button clicked");
-	var msg = ({
-		from: "popup",
-		subject: 90
-	});
-
-	chrome.runtime.sendMessage(msg, function(response) {
-		if(response){
-			console.log("RCV: background says: ", response);
-		}else{
-			console.log("NO response!", response);
-		}
-	});
+		chrome.runtime.sendMessage(msg, function(response) {
+			if(response){
+				console.log("RCV: background says: ", response);
+			}else{
+				console.log("NO response!", response);
+			}
+		});
+	}
 }
 
 
